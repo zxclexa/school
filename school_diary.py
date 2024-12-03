@@ -1,12 +1,15 @@
 
 class Visiting:
-    def __init__(self,name,date_of_birth,grade):
-        self.name=name
-        self.date_of_birth=date_of_birth
-        self.grade=grade
-
-
+    def __init__(self):
         pass
+
+    def display_visitings(self):
+        print('\nКоличество пропусков студентов: ')
+        for i in visitings:
+            print(i, visitings[i])
+
+    def add_visitings(self,name):
+        visitings[name]+=1
 
 class Rates:
     def __init__(self,diary_math, diary_ru_lang, diary_en_lang):
@@ -68,6 +71,20 @@ diary_en_lang = {
     'Эльнара Андреевна': [4,5,5,5]
 }
 
+visitings = {
+    'Прохор Тигранович': 1,
+    'Эльнара Андреевна': 2
+}
+
+
+
+#ПОСЕЩЕНИЯ
+v = Visiting()
+v.display_visitings()
+v.add_visitings('Прохор Тигранович')
+v.display_visitings()
+
+#ОЦЕНКИ
 r = Rates(diary_math, diary_ru_lang, diary_en_lang)
 r.display_all_rates()
 
