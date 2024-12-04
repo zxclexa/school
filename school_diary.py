@@ -94,9 +94,9 @@ s = Students()
 while True:
     print('Оценки по предметам:')
     r.display_all_rates()
-    choise = input('\nВыберите действие: (1)Выставить оценку (2)Показать пропуски (3)Выкл: ')
+    choise = input('\nВыберите действие: (1)Выставить оценку (2)Показать пропуски (3)Ученики (4)Выкл: ')
     if choise == '1':
-        imya = input('Введите имя и фамилию студента: ')
+        imya = input('Введите имя и фамилию ученика: ')
         while True:
             sub = input('\nВыберите предмет: (1)Математика (2)Русский язык (3)Английский язык (4)Назад: ')
             if sub != '4':
@@ -110,11 +110,24 @@ while True:
         while True:
             choise2 = input('\nВыберите действие: (1)Выставить пропуски (2)Назад: ')
             if choise2 == '1':
-                while True:
-                    stu = input('\nВведите фамилию студента: ')
-                    v.add_visitings(stu)
-                    v.display_visitings()
+                stu = input('\nВведите имя и фамилию ученика: ')
+                v.add_visitings(stu)
+                v.display_visitings()
             elif choise2 == '2':
+                break
+    elif choise == '3':
+        while True:
+            print()
+            for i in diary_math:
+                print(i)
+            choise3 = input('\n(1)Зачислить ученика (2)Отчислить ученика (3)Назад: ')
+            if choise3 == '1':
+                stu = input('Введите имя и фамилию ученика: ')
+                s.add_student(stu)
+            elif choise3 == '2':
+                stu = input('Введите имя и фамилию ученика: ')
+                s.remove_student(stu)
+            else:
                 break
     else:
         break
