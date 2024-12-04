@@ -18,15 +18,15 @@ class Rates:
         self.diary_en_lang=diary_en_lang
 
     def display_all_rates(self):
-        print('\nОценки по математике: ')
+        print('\nМатематике: ')
         for i in diary_math:
             print(i, *diary_math[i])
-        print('\nОценки по русскому языку: ')
-        for i in diary_math:
+        print('\nРусский язык: ')
+        for i in diary_ru_lang:
             print(i, *diary_ru_lang[i])
-        print('\nОценки по английскому языку: ')
+        print('\nАнглийский язык: ')
         for i in diary_en_lang:
-            print(i, *diary_ru_lang[i])
+            print(i, *diary_en_lang[i])
 
     def add_rate(self, rate,subject,name):
         if subject == '1':
@@ -58,6 +58,7 @@ class Students:
         diary_math[name] = []
         diary_ru_lang[name] = []
         diary_en_lang[name] = []
+        visitings[name] = 0
 
     def remove_student(self, name):
         diary_math.pop(name)
@@ -89,4 +90,32 @@ visitings = {
 v = Visiting()
 r = Rates(diary_math, diary_ru_lang, diary_en_lang)
 s = Students()
+
+while True:
+    print('Оценки по предметам:')
+    r.display_all_rates()
+    choise = input('\nВыберите действие: (1)Выставить оценку (2)Показать пропуски (3)Выкл: ')
+    if choise == '1':
+        imya = input('Введите имя и фамилию студента: ')
+        while True:
+            sub = input('\nВыберите предмет: (1)Математика (2)Русский язык (3)Английский язык (4)Назад: ')
+            if sub != '4':
+                gr = input('Введите оценку: ')
+                r.add_rate(gr,sub,imya)
+                r.display_all_rates()
+            else:
+                break
+    elif choise == '2':
+        v.display_visitings()
+        while True:
+            choise2 = input('\nВыберите действие: (1)Выставить пропуски (2)Назад: ')
+            if choise2 == '1':
+                while True:
+                    stu = input('\nВведите фамилию студента: ')
+                    v.add_visitings(stu)
+                    v.display_visitings()
+            elif choise2 == '2':
+                break
+    else:
+        break
 
