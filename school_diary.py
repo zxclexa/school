@@ -51,9 +51,19 @@ class Rates:
 
 
 class Students:
-    def __init__(self,name):
-        self.name=name
-    pass
+    def __init__(self):
+        pass
+
+    def add_student(self, name):
+        diary_math[name] = []
+        diary_ru_lang[name] = []
+        diary_en_lang[name] = []
+
+    def remove_student(self, name):
+        diary_math.pop(name)
+        diary_ru_lang.pop(name)
+        diary_en_lang.pop(name)
+
 
 
 diary_math = {
@@ -76,21 +86,7 @@ visitings = {
     'Эльнара Андреевна': 2
 }
 
-
-
-#ПОСЕЩЕНИЯ
 v = Visiting()
-v.display_visitings()
-v.add_visitings('Прохор Тигранович')
-v.display_visitings()
-
-#ОЦЕНКИ
 r = Rates(diary_math, diary_ru_lang, diary_en_lang)
-r.display_all_rates()
+s = Students()
 
-r.add_rate(5, '1', 'Прохор Тигранович')
-r.add_rate(3, '2', 'Эльнара Андреевна')
-r.add_rate(4, '3', 'Новый Ученик')
-
-
-r.display_all_rates()
