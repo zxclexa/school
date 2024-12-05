@@ -31,9 +31,9 @@ class Rates:
     def add_rate(self, rate,subject,name):
         if subject == '1':
             if name in self.diary_math:
-                self.diary_math[name].append(rate)  # Добавляем оценку в список
+                self.diary_math[name].append(rate)  
             else:
-                print('\nТакого ученика нет.')  # Создаем запись для нового ученика
+                print('\nТакого ученика нет.')  
 
         elif subject == '2':
             if name in self.diary_ru_lang:
